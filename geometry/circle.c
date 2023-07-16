@@ -10,12 +10,6 @@ int main()
   int choice;
 
   // Get user input
-  // Ask the user if they know the radius, diameter, circumference, or area of the circle
-  // If they do, ask them to enter the value
-  // If they don't, ask them to enter the radius
-  // Calculate the other values
-  // Display the results to the user
-  // Display a visual representation of the circle to the user
 
   printf("Do you know the radius, diameter, circumference, or area of the circle?\n");
 
