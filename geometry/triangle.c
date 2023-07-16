@@ -11,11 +11,20 @@ int main()
 
   // Get user input
   printf("Enter the length of side 1: ");
-  scanf("%f", &side1);
+  if (scanf("%f", &side1) != 1) {
+    printf("Invalid input. Please enter a number.\n");
+    return 1;
+  }
   printf("Enter the length of side 2: ");
-  scanf("%f", &side2);
+  if (scanf("%f", &side2) != 1) {
+    printf("Invalid input. Please enter a number.\n");
+    return 1;
+  }
   printf("Enter the length of side 3: ");
-  scanf("%f", &side3);
+  if (scanf("%f", &side3) != 1) {
+    printf("Invalid input. Please enter a number.\n");
+    return 1;
+  };
 
   // Calculate perimeter and area
   perimeter = side1 + side2 + side3;

@@ -1,8 +1,45 @@
 // This program will calculate the dimensions of a circle and display them to the user.
 
+#include <math.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
+
+float get_radius_from_diameter(float diameter)
+{
+  float radius = diameter / 2;
+  return radius;
+}
+
+float get_circumference_from_radius(float radius)
+{
+  float circumference = 2 * M_PI * radius;
+  return circumference;
+}
+
+float get_area_from_radius(float radius)
+{
+  float area = M_PI * pow(radius, 2);
+  return area;
+}
+
+float get_diameter_from_radius(float radius)
+{
+  float diameter = 2 * radius;
+  return diameter;
+}
+
+float get_radius_from_circumference(float circumference)
+{
+  float radius = circumference / (2 * M_PI);
+  return radius;
+}
+
+float get_radius_from_area(float area)
+{
+  float radius = sqrt(area / M_PI);
+  return radius;
+}
 
 int main()
 {
@@ -22,31 +59,43 @@ int main()
   switch (choice) {
     case 1:
       printf("Enter the radius of the circle: ");
-      scanf("%f", &radius);
-      diameter = 2 * radius;
-      circumference = 2 * M_PI * radius;
-      area = M_PI * pow(radius, 2);
+      if (scanf("%f", &radius) != 1) {
+        printf("Not a valid number.");
+        return 1;
+      }
+      diameter = get_diameter_from_radius(radius);
+      circumference = get_circumference_from_radius(radius);
+      area = get_area_from_radius(radius);
       break;
     case 2:
       printf("Enter the diameter of the circle: ");
-      scanf("%f", &diameter);
-      radius = diameter / 2;
-      circumference = M_PI * diameter;
-      area = M_PI * pow(radius, 2);
+      if (scanf("%f", &diameter) != 1) {
+        printf("Not a valid number.");
+        return 1;
+      }
+      radius = get_radius_from_diameter(diameter);
+      circumference = get_circumference_from_radius(radius);
+      area = get_area_from_radius(radius);
       break;
     case 3:
       printf("Enter the circumference of the circle: ");
-      scanf("%f", &circumference);
-      radius = circumference / (2 * M_PI);
-      diameter = 2 * radius;
-      area = M_PI * pow(radius, 2);
+      if (scanf("%f", &circumference) != 1) {
+        printf("Not a valid number.");
+        return 1;
+      }
+      radius = get_radius_from_circumference(circumference);
+      diameter = get_diameter_from_radius(radius);
+      area = get_area_from_radius(radius);
       break;
     case 4:
       printf("Enter the area of the circle: ");
-      scanf("%f", &area);
-      radius = sqrt(area / M_PI);
-      diameter = 2 * radius;
-      circumference = 2 * M_PI * radius;
+      if (scanf("%f", &area) != 1){
+        printf("Not a valid number.");
+        return 1;
+      }
+      radius = get_radius_from_area(area);
+      diameter = get_diameter_from_radius(radius);
+      circumference = get_circumference_from_radius(radius);
       break;
     default:
       printf("Wrong answer, pal. Try again.");

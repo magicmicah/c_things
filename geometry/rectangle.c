@@ -11,9 +11,15 @@ int main()
 
     // Get user input
     printf("Enter the length of the rectangle: ");
-    scanf("%f", &length);
+    if(scanf("%f", &length)!= 1) {
+        printf("Invalid input. Please enter a number.\n");
+        return 1;
+    }
     printf("Enter the width of the rectangle: ");
-    scanf("%f", &width);
+    if (scanf("%f", &width) != 1) {
+        printf("Invalid input. Please enter a number.\n");
+        return 1;
+    }
 
     // Calculate area, perimeter, and diagonal
     area = length * width;
